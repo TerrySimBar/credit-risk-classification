@@ -26,14 +26,14 @@ A supervised machine learning project that uses SciKit-learn's `LogisticRegressi
 <br>
 
 ### Overview  
-The following analysis is based on the classification reports for the original data and the resampled data. The purpose of the analysis is to determine if the resampled data improves the model's performance. The data set contains information about borrowers' loan sizes ,interest rates,incomes, debt to income ratios, number of accounts, derogatory marks, total debt, and loan status. The goal is to build a model that effectively predicts the creditworthiness of borrowers. The data set is imbalanced with 75036 healthy loans (Class 0) and 2500 high-risk loans (Class 1). It is therefore useful to resample the data with `RandomOverSampler` to address the imbalance in the data and then check if the resampled data improves the model's performance.  
+The following analysis is based on the classification reports for the original data and the resampled data. The purpose of the analysis is to determine if the resampled data improves the model's performance. The data set contains information about borrowers' loan sizes, interest rates,incomes, debt to income ratios, number of accounts, derogatory marks, total debt, and loan status. The goal is to build a model that effectively predicts the creditworthiness of borrowers. The data set is imbalanced with 75,036 healthy loans (Class 0) and 2,500 high-risk loans (Class 1). It is therefore useful to resample the data with `RandomOverSampler` to address the imbalance in the data and then check if the resampled data improves the model's performance.  
 
 The project uses SciKit-learn and RandomOverSampler to achieve the following crucial steps:
 
 - Use `train_test_split` to create training and testing data.   
-- Use `LogisticRegression` to fit the training data and make predictions.
+- Use `LogisticRegression` to fit the training data and make predictions using the testing data.    
 - Generate the confusion matrix, classification report, and balanced accuracy score for the model.  
-- Use `RandomOverSampler` to resample the data and fit the model.
+- Use `RandomOverSampler` to resample the data.
 - Analyze the results of the model and compare the results with the original model to determine if the oversampling the data improves the model's performance.
 
 <br>
@@ -55,7 +55,7 @@ Imbalanced-learn (version: 0.10.1)
 #### Original Data
 1. **Set up dependencies and read/preview the data**
 
-The data for this project is read from the `lending_data.csv` file and previewed.     
+     The data is read from the `lending_data.csv` file and previewed.     
 
 2. **Separate the data into labels and features** 
 Set the `loan_status` column as the target (y) and all other columns as features (X).   
@@ -67,10 +67,11 @@ Use `train_test_split` to split the data into training and testing datasets.
 Use `LogisticRegression` to create an instance of the Logistic Regression model.    
 
 5. **Fit the model to the data and make predictions** 
-Use `fit` to fit the model to the data and `predict` to make predictions.   
+Use `fit` to fit the model to the training data.
+ Use `predict` to make predictions with the testing data. 
 
 6. **Evaluate the models performance** 
-Use `balanced_accuracy_score` to generate the balanced accuracy score, `confusion_matrix` to generate the confusion matrix, and `classification_report_imbalanced` to generate the classification report.  
+Use `balanced_accuracy_score` to generate the balanced accuracy score, `confusion_matrix` to generate the confusion matrix, and `classification_report_imbalanced` to generate the classification report, to get the values needed to evaluate the model's performance. 
 
 <br>
 
@@ -86,72 +87,72 @@ Create an instance of `RandomOverSampler` and resample the data to address the i
 
 ### Discussion of Results
 
-#### 1. Original Data  
+#### Model 1: Original Data  
 
-**Precision**
+- **Precision**
 Healthy Loan (Class 0): 1.00
 Precision of 1.00 indicates that when the model predicts a healthy loan, it is correct every time.
 
-High-Risk Loan (Class 1): 0.87
-Precision of 0.87 means that when the model predicts a high-risk loan, it is correct about 87% of the time.
+    High-Risk Loan (Class 1): 0.87
+    Precision of 0.87 means that when the model predicts a high-risk loan, it is correct about 87% of the time.
 
 
-**Recall (Sensitivity)**
+- **Recall (Sensitivity)**
 Healthy Loan (Class 0): 1.00
 Recall of 1.00 indicates that the model correctly identifies all instances of healthy loans.
 
-High-Risk Loan (Class 1): 0.89
-Recall of 0.89 means that the model captures about 89% of the actual high-risk loans, but misses about 11% of the actual high-risk loans.   
+    High-Risk Loan (Class 1): 0.89
+    Recall of 0.89 means that the model captures about 89% of the actual high-risk loans, but misses about 11% of the actual high-risk loans.   
 
-**F1-Score**
+- **F1-Score**
 Healthy Loan (Class 0): 1.00
 F1-score of 1.00 is remarkable and a perfect balance between precision and recall for Class 0. 
 
-High-Risk Loan (Class 1): 0.88
-F1-score of 0.88 is a good balance between precision and recall for Class 1.
+    High-Risk Loan (Class 1): 0.88
+    F1-score of 0.88 is a good balance between precision and recall for Class 1.
 
-**Accuracy**
+- **Accuracy**
 Overall accuracy is 0.99, indicating that 99% of all predictions (both true positives and true negatives) were correct.
 
-**Summary**
+- **Summary**
 The model performs exceptionally well for predicting healthy loans (Class 0) with high precision, recall, and F1-score.
 For high-risk loans (Class 1), the model performs with lower precision compared to Class 0.
 In general, the model is highly accurate and effective, especially in identifying healthy loans. 
 <br>
 
-#### 2. Resampled Data  
+#### Model 2: Resampled Data  
 
-**Precision**
+- **Precision**
 Healthy Loan (Class 0): 1.00
 Precision of 1.00 indicates that when the model predicts a healthy loan, it is correct every time.
 
-High-Risk Loan (Class 1): 0.87
-Precision of 0.87 means that when the model predicts a high-risk loan, it is correct about 87% of the time.
+    High-Risk Loan (Class 1): 0.87
+    Precision of 0.87 means that when the model predicts a high-risk loan, it is correct about 87% of the time.
 
 
-**Recall (Sensitivity)**
+- **Recall (Sensitivity)**
 Healthy Loan (Class 0): 1.00
 Recall of 1.00 indicates that the model correctly identifies all instances of healthy loans.
 
-High-Risk Loan (Class 1): 1.00
-Recall of 1.00 means that the model correctly identifies all instances of high-risk loans.   
+    High-Risk Loan (Class 1): 1.00
+    Recall of 1.00 means that the model correctly identifies all instances of high-risk loans.   
 
-**F1-Score**
+- **F1-Score**
 Healthy Loan (Class 0): 1.00
 F1-score of 1.00 is a perfect balance between precision and recall for Class 0. 
 
-High-Risk Loan (Class 1): 0.93
-F1-score of 0.93 is a very good balance between precision and recall for Class 1.
+    High-Risk Loan (Class 1): 0.93
+    F1-score of 0.93 is a very good balance between precision and recall for Class 1.
 
-**Accuracy**
+- **Accuracy**
 Overall accuracy is 1.00, indicating that 100% of all predictions (both true positives and true negatives) were correct.
 
-**Summary**
+- **Summary**
 The model shows exceptional performance in predicting healthy loans (Class 0) with high precision, recall, and F1-score.
 For high-risk loans (Class 1), the model shows improved performance, compared to the model for the original data.    
 In general, the model is more accurate and effective than the model for the original data. 
 
-#### 3. Recommendations
+#### Recommendations
 
 Based on the analysis of the classification reports for the original data and the resampled data, the logistic regression model for the resampled data is highly recommended for predicting credit risk, especially healthy loans (Class 0). The model for the resampled data shows improved performance for predicting high-risk loans (Class 1) with higher, recall, and F1-score. The model for the resampled data yields a accuracy score of 1.00, an improvement over the accuracy score of 0.99 for the model for the original data, and this indicates that the model for the resampled data is overall more accurate and effective than the model for the original data.  
 
