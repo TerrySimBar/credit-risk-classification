@@ -10,7 +10,7 @@ A supervised machine learning project that uses SciKit-learn's `LogisticRegressi
 <br>
 <br>
 
-<img src="/images/class_report_oversampled.png" alt="Classification report for resampled data" width="800"/>
+<img src="/images/class_report_resample.png" alt="Classification report for resampled data" width="800"/>
 <br>
 <br>
 <br>
