@@ -1,6 +1,6 @@
 # credit-risk-classification
 <br>
-A supervised machine learning project that uses SciKit-learn's `LogisticRegression` and imbalanced-learn's `RandomOverSampler` to build an effective logistic regression model to predict the creditworthiness of borrowers in two classes: healthy loans (Class 0) and high-risk loans (Class 1). 
+A supervised machine learning project that uses SciKit-learn's `LogisticRegression` and Imbalanced-learn's `RandomOverSampler` to build an effective logistic regression model to predict the creditworthiness of borrowers in two classes: healthy loans (Class 0) and high-risk loans (Class 1). 
 <br>  
 <br>
 <br>
@@ -26,7 +26,7 @@ A supervised machine learning project that uses SciKit-learn's `LogisticRegressi
 <br>
 
 ### Overview  
-The following analysis is based on the classification reports for the original data and the resampled data. The purpose of the analysis is to determine if the resampled data improves the model's performance. The data set contains information about borrowers' loan sizes, interest rates,incomes, debt to income ratios, number of accounts, derogatory marks, total debt, and loan status. The goal is to build a model that effectively predicts the creditworthiness of borrowers. The data set is imbalanced with 75,036 healthy loans (Class 0) and 2,500 high-risk loans (Class 1). It is therefore useful to resample the data with `RandomOverSampler` to address the imbalance in the data and then check if the resampled data improves the model's performance.  
+The following analysis is based on the classification reports for the original data and the resampled data. The purpose of the analysis is to determine if the resampled data improves the model's performance. The data set contains information about borrowers' loan sizes, interest rates, incomes, debt to income ratios, number of accounts, derogatory marks, total debt, and loan status. The goal is to build a model that effectively predicts the creditworthiness of borrowers. The original data set is imbalanced with 75,036 healthy loans (Class 0) and 2,500 high-risk loans (Class 1). It is therefore useful to resample the data with `RandomOverSampler` and then check if the resampled data improves the model's performance.  
 
 The project uses SciKit-learn and RandomOverSampler to achieve the following crucial steps:
 
@@ -42,9 +42,13 @@ The project uses SciKit-learn and RandomOverSampler to achieve the following cru
 This project uses the following software and Python libraries:    
 
 Python (version 3.10.9)
+
 Pandas (version: 2.0.3)
+
 NumPy (version: 1.24.3)
+
 Sci-Kit Learn (version: 1.3.0)
+
 Imbalanced-learn (version: 0.10.1)
 
 <br>
@@ -58,20 +62,20 @@ Imbalanced-learn (version: 0.10.1)
      The data is read from the `lending_data.csv` file and previewed.     
 
 2. **Separate the data into labels and features** 
-Set the `loan_status` column as the target (y) and all other columns as features (X).   
+    Set the `loan_status` column as the target (y) and all other columns as features (X).   
 
 3. **Split the data into training and test datasets** 
-Use `train_test_split` to split the data into training and testing datasets.
+    Use `train_test_split` to split the data into training and testing datasets.
 
 4. **Create and instance of the Logistic Regeression Model** 
-Use `LogisticRegression` to create an instance of the Logistic Regression model.    
+    Use `LogisticRegression` to create an instance of the Logistic Regression model.    
 
 5. **Fit the model to the data and make predictions** 
-Use `fit` to fit the model to the training data.
- Use `predict` to make predictions with the testing data. 
+    Use `fit` to fit the model to the training data.
+    Use `predict` to make predictions with the testing data. 
 
 6. **Evaluate the models performance** 
-Use `balanced_accuracy_score` to generate the balanced accuracy score, `confusion_matrix` to generate the confusion matrix, and `classification_report_imbalanced` to generate the classification report, to get the values needed to evaluate the model's performance. 
+    Use `balanced_accuracy_score` to generate the balanced accuracy score, `confusion_matrix` to generate the confusion matrix, and `classification_report_imbalanced` to generate the classification report, to get the values needed to evaluate the model's performance. 
 
 <br>
 
@@ -79,7 +83,7 @@ Use `balanced_accuracy_score` to generate the balanced accuracy score, `confusio
 
 1. **Resample the data**
 
-Create an instance of `RandomOverSampler` and resample the data to address the imbalance in the data.   
+    Create an instance of `RandomOverSampler` and resample the data to address the imbalance in the data.   
 
 2. **Repeat the steps above and evaluate the model's performance on the resampled data**    
 
@@ -153,8 +157,8 @@ For high-risk loans (Class 1), the model shows improved performance, compared to
 In general, the model is more accurate and effective than the model for the original data. 
 
 #### Recommendations
+The model for the resampled data improved in accuracy from 0.99 to 1.00, and the F1-score and recall for high-risk loans improved from 0.88 to 0.93 and 0.89 to 1.00, respectively. However, the precision for healthy and high-risk loans remained the same at 1.00 and 0.87, respectively. While the model for the resampled data shows overall improvement, it did not do better at predicting high-risk loans. A more effective model will be needed to predict high-risk loans with better precisiion, since an entity that lends money would want all the loans it approves to be healthy loans.  
 
-Based on the analysis of the classification reports for the original data and the resampled data, the logistic regression model for the resampled data is highly recommended for predicting credit risk, especially healthy loans (Class 0). The model for the resampled data shows improved performance for predicting high-risk loans (Class 1) with higher, recall, and F1-score. The model for the resampled data yields a accuracy score of 1.00, an improvement over the accuracy score of 0.99 for the model for the original data, and this indicates that the model for the resampled data is overall more accurate and effective than the model for the original data.  
 
 <br>
 
