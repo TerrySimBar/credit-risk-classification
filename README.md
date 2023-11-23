@@ -157,8 +157,9 @@ For high-risk loans (Class 1), the model shows improved performance, compared to
 In general, the model is more accurate and effective than the model for the original data. 
 
 #### Recommendations
-The model for the resampled data improved in accuracy from 0.99 to 1.00, and the F1-score and recall for high-risk loans improved from 0.88 to 0.93 and 0.89 to 1.00, respectively. However, the precision for healthy and high-risk loans remained the same at 1.00 and 0.87, respectively. While the model for the resampled data shows overall improvement, it did not do better at predicting high-risk loans. A more effective model will be needed to predict high-risk loans with better precision, since an entity that lends money would not want to miss lending opportunities in thinking that a loan is high-risk when it is not. Turning down 13% of the high-risk loans could be a significant loss of revenue.   
+The model for the resampled data improved in accuracy from 0.99 to 1.00, and the F1-score and recall for high-risk loans improved from 0.88 to 0.93 and 0.89 to 1.00, respectively. However, the precision for healthy and high-risk loans remained the same at 1.00 and 0.87, respectively. While the model for the resampled data shows overall improvement, it did not do better at predicting high-risk loans. A more effective model will be needed to predict high-risk loans with better precision, since an entity that lends money would not want to miss lending opportunities in thinking that a loan is high-risk when it is not. Turning down 13% of the high-risk loans could be a significant loss of revenue. 
 
+Nevertheless, a more conservative lending company may accept the model's performance, since it is highly accurate and precise in predicting healthy loans.     
 
 <br>
 
